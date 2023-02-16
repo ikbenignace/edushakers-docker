@@ -22,7 +22,8 @@ services:
       - /var/server/portainer/data:/data
     networks:
       - agent-network
-      - public
+    ports:
+      - 9000:9000
     deploy:
       placement:
         constraints:
@@ -31,5 +32,3 @@ services:
 networks:
   agent-network:
     attachable: true
-  public:
-    external: true
