@@ -31,7 +31,8 @@ services:
         - traefik.http.routers.traefik-public-https.middlewares=admin-auth
         - traefik.http.services.traefik-public.loadbalancer.server.port=8080
     command:
-      - --providers.docker=true
+      - --providers.docker
+      - --providers.docker.constraints=Label(`traefik.constraint-label`, `traefik-public`)
       - --providers.docker.exposedbydefault=false
       - --providers.docker.swarmmode
       - --entrypoints.http.address=:80
@@ -40,7 +41,7 @@ services:
       - --certificatesresolvers.le.acme.storage=/certificates/acme.json
       - --certificatesresolvers.le.acme.tlschallenge=true
       - --accesslog
-      - --log.level=debug
+      - --log
       - --api
     networks:
       - public
