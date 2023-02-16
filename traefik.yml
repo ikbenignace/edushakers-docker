@@ -41,7 +41,7 @@ services:
       - --providers.docker.swarmmode
       - --entrypoints.http.address=:80
       - --entrypoints.https.address=:443
-      - --certificatesresolvers.le.acme.email=ignace.mella@telenet.be
+      - --certificatesresolvers.le.acme.email=r0838387@ucll.be
       - --certificatesresolvers.le.acme.storage=/certificates/acme.json
       - --certificatesresolvers.le.acme.tlschallenge=true
       - --accesslog
