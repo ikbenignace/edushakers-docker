@@ -41,7 +41,7 @@ services:
       - --certificatesresolvers.le.acme.tlschallenge=true
       - --accesslog
       - --log.level=debug
-      --api
+      - --api
     networks:
       - public
 
