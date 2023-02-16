@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.9'
 
 services:
   traefik:
@@ -7,9 +7,15 @@ services:
       - target: 80
         published: 80
         mode: host
+        protocol: tcp
       - target: 443
         published: 443
         mode: host
+        protocol: tcp
+      - target: 8080
+        published: 8080
+        mode: host
+        protocol: tcp
     deploy:
       placement:
         constraints:
@@ -17,6 +23,7 @@ services:
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/server/traefik:/certificates
+      - /var/log/traefik:/var/log/traefik
     labels:
         - traefik.enable=true
         - traefik.docker.network=public
