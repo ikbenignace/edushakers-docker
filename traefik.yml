@@ -10,10 +10,10 @@ services:
       - target: 443
         published: 443
         mode: host
-    # deploy:
-    #   placement:
-    #     constraints:
-    #       - node.role == manager
+    deploy:
+      placement:
+        constraints:
+          - node.role == manager
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
       - /var/server/traefik:/certificates
